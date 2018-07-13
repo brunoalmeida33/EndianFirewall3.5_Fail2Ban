@@ -75,6 +75,22 @@ O Contador de BAN é a quantidade de falhas de login para e execução do BAN do
 
 <br>
 
+Ferramentas do Fail2ban:
+-------
+<br>
+
+1 - Mostrar IP Banidos 
+<br>
+Ao clicar em "Executar" nesta opção é exibido uma janela console informando todas as Jails, Actions e IP banidos de cada serviço. 
+<br>
+<br>
+2 - Desbanir IP Serviço
+<br>
+Ao digitar o IP banido na caixa "Endereço de IP" e em seguida clicar em "Executar", sera removido o BAN do mesmo do serviço que voce selecionou (SSH, ENDIANCP ou OPENVPN).
+
+<br>
+
+
 Removendo o pacote:
 --------
 - No console ssh digite:

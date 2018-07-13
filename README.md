@@ -6,13 +6,13 @@ Addon Fail2ban for Endian Firewall Community 3.2.x.
 Versão:
 --------
 
-v.1.0 ( Testado no Endian Firewall Community nas versões 3.2.1 a 3.2.5).
+v.2.0 ( Testado no Endian Firewall Community na versão 3.2.5).
 
 <br>
 
 Requerimentos/opcional:
 --------
-- Requer: Acesso ao seu Endian Firewall atraves do console (Conexão SSH).
+- Requer: Acesso SSH ao Servidor e configuração de "Proxy SMTP" para o envio de alertas por e-mail.
 
 <br>
 
@@ -22,16 +22,22 @@ Instalando o Pacote:
 <br>
 
 Realizando Download:
+--------
 
-    curl -Lo squidanalyzer-endian3-1.0-1.x86_64.rpm  https://github.com/brunoalmeida33/EndianFirewall3.2_SquidAnalyzer/raw/master/squidanalyzer-endian3-1.0-1.x86_64.rpm
-    
+Para realizar a compra/download do pacote acesse o site http://www.4nsecurity.com.br/loja/EndianFirewall_Fail2ban. 
+
+Obs: O Arquivo pode ser enviado para o firewall atraves das ferramentas (winscp - para windows) ou atraves do scp no terminal linux.
+
 <br>
 
 <br>
 
 Executando a instalação:
+-------
 
-    rpm -Uvh squidanalyzer-endian3-1.0-1.x86_64.rpm
+No Terminal SSH do Servidor (com o usuario root) execute ocomando abaixo:
+    
+    rpm -Uvh fail2ban-endian3-2.0-1.x86_64.rpm
     
 <br>
 

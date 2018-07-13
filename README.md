@@ -16,12 +16,9 @@ Requerimentos/opcional:
 
 <br>
 
-Instalando o Pacote:
-
-
 <br>
 
-Realizando Download:
+Realizando download do pacote:
 --------
 
 Para realizar a compra/download do pacote acesse o site http://www.4nsecurity.com.br/loja/EndianFirewall_Fail2ban. 
@@ -32,17 +29,23 @@ Obs: O Arquivo pode ser enviado para o firewall atraves das ferramentas (winscp 
 
 <br>
 
-Executando a instalação:
+Executando a instalação do pacote:
 -------
 
-No Terminal SSH do Servidor (com o usuario root) execute ocomando abaixo:
+No Terminal SSH do Servidor (com o usuario root) execute o comando abaixo:
     
     rpm -Uvh fail2ban-endian3-2.0-1.x86_64.rpm
     
 <br>
 
-Configuração Adicional (Recomendado para backups dos logs do squid):
+Configuraçoẽs:
 --------
+
+Habilitando o Serviço:
+
+1 - Acesso o painel de controle do Endian Firewall com o usuario Admin, selecione o menu "Firewall" e em seguida o sub-menu "Protecao Fail2ban".
+2 - 
+
 <br>
 
 Edite o arquivo /etc/logrotate.d/squid.tmpl ( com qualquer editor de texto ) na linha 31, substitua o parametro "rotate 1" para "rotate 94", salve o arquivo e reinicie o servidor firewall.
@@ -63,7 +66,7 @@ Removendo o pacote:
 --------
 - No console ssh digite:
 
-    rpm -e squidanalyzer-endian3
+    rpm -e fail2ban-endian3
     
   <br>  
     

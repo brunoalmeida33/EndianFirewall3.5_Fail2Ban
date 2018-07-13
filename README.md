@@ -117,7 +117,7 @@ Outras informações:
 
 # ATENÇÂO!!!
 <br>
-Caso voce altere as portas padrões dos servicos SSH(22), OPENVPN(1194) e ENDIANCP (10443,80,443), o bloqueio(BA) do IP atacante não sera realizado corretamente, logo entre em contato comigo para realizar uma customização deste pacote.
+Caso voce altere as portas padrões dos servicos SSH(22), OPENVPN(1194) e ENDIANCP (10443,80,443), o bloqueio(BAN) do IP atacante não sera realizado corretamente, logo entre em contato comigo para realizar uma customização deste pacote.
 
 <br>
 

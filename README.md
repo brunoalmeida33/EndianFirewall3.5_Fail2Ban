@@ -43,7 +43,7 @@ Configuraçoẽs do Serviço:
 
 Habilitando o Serviço:
 
-1 - Acesso o painel de controle do Endian Firewall com o usuario Admin, selecione o menu "Firewall" e em seguida o sub-menu "Protecao Fail2ban".
+1 - Acesso o painel de controle do Endian Firewall com o usuario Admin, selecione o menu "Firewall" e em seguida o sub-menu "Protecao Fail2ban".<br>
 2 - 
 
 <br>

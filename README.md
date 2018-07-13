@@ -38,16 +38,35 @@ No Terminal SSH do Servidor (com o usuario root) execute o comando abaixo:
     
 <br>
 
-Configuraçoẽs do Serviço:
---------
-
 Habilitando o Serviço:
+-------
 
 1 - Acesso o painel de controle do Endian Firewall com o usuario Admin, selecione o menu "Firewall" e em seguida o sub-menu "Fail2ban Protecao".
 <br>
 2 - Seleciona a caixa checkbox "Habilitar" e pressione o botão "Salvar" para que o serviço inicialize.
 <br>
 Obs: No menu estado voce podera vizualizar se o Serviço Fail2ban esta "em execução". 
+
+<br>
+
+Configuraçoẽs do Serviço:
+--------
+
+Tempo de BAN:
+
+<br>
+
+O Tempo de BAN é a difinição de quanto tempo (em Segundos) o IP atacante ficara banido no acesso aos serviços que esta sendo protegidos.
+
+<br>
+
+O valor padrão é de 3600 ( 1 hora ), os valores aceitos sao de -1 (para ban permanente) a 99999 (segundos).
+
+Contador de BAN:
+
+<br>
+
+O Contador de BAN é a quantidade de falhas de login para e execução do BAN do IP atacante, seu valor padrão é de 5 tentativas e os valores aceitos sao de 1 a 99.
 
 <br>
 

@@ -38,27 +38,13 @@ No Terminal SSH do Servidor (com o usuario root) execute o comando abaixo:
     
 <br>
 
-Configuraçoẽs:
+Configuraçoẽs do Serviço:
 --------
 
 Habilitando o Serviço:
 
 1 - Acesso o painel de controle do Endian Firewall com o usuario Admin, selecione o menu "Firewall" e em seguida o sub-menu "Protecao Fail2ban".
 2 - 
-
-<br>
-
-Edite o arquivo /etc/logrotate.d/squid.tmpl ( com qualquer editor de texto ) na linha 31, substitua o parametro "rotate 1" para "rotate 94", salve o arquivo e reinicie o servidor firewall.
-
-Exemplo:
-
-nano +31 /etc/logrotate.d/squid.tmpl 
-
-Substitua "rotate 1" para "rotate 94" nesta linha. (obs: sem as aspas " " ).
-
-Segure CTRL + O e pressione ENTER para salvar o arquivo e CTRL + X para sair do editor nano.
-
-para reinicia o firewall utilize o comando "reboot".
 
 <br>
 
@@ -73,11 +59,7 @@ Removendo o pacote:
 Outras informações:
 ------------------
 
-- Para acessar o SquidAnalyzer é necessario acessar o Servidor firewall com login padrão "admin" e sua senha atual.
 
-Link Para acesso: HTTPS://IPDOFIREWALL:10443/squidanalyzer/
-
-Observações: Os relatorios são atualizados a cada 55 minutos automaticamente, inicialmente nenhum relatorio é gerado, caso queira executa-lo manualmente, é necessario logar no SSH como root e executar o comando "squid-analyzer". 
 
 Espero ter ajudado.
 

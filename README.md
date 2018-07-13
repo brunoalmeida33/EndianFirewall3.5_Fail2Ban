@@ -3,6 +3,17 @@ Addon Fail2ban for Endian Firewall Community 3.2.x.
 
 <br>
 
+Descrição:
+------
+
+O Fail2Ban é uma estrutura de software de prevenção de intrusões que protege os servidores de computadores contra ataques de força bruta.
+
+<br>
+
+Inicialmente configurei este pacote para proteger os serviços SSH (Porta padrão 22), OPENVPN (Porta padrão 1194) e Painel de Controle do Endian (Portas Padrões 80, 443 e 10443), logo apos a quantidade estipulada de erros de login ser atingida, automaticamente o IP atacante sera bloqueado pelo tempo configurado.
+
+<br>
+
 Versão:
 --------
 
@@ -102,7 +113,13 @@ Removendo o pacote:
 Outras informações:
 ------------------
 
+<br>
 
+# ATENÇÂO!!!
+<br>
+Caso voce altere as portas padrões dos servicos SSH(22), OPENVPN(1194) e ENDIANCP (10443,80,443), o bloqueio(BA) do IP atacante não sera realizado corretamente, logo entre em contato comigo para realizar uma customização deste pacote.
+
+<br>
 
 Espero ter ajudado.
 

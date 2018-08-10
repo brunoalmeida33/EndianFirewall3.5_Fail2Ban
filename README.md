@@ -32,7 +32,7 @@ Requerimentos/opcional:
 Realizando download do pacote:
 --------
 
-Para realizar a compra/download do pacote acesse o site http://www.4nsecurity.com.br/loja/EndianFirewall_Fail2ban. 
+Para obter o pacote entre em contato comigo pelo e-mail bruno@4nsecurity.com.br
 
 Obs: O Arquivo pode ser enviado para o firewall atraves das ferramentas (winscp - para windows) ou atraves do scp no terminal linux.
 

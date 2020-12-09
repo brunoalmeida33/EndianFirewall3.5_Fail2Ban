@@ -1,4 +1,4 @@
-# EndianFirewall3.5_Fail2Ban
+# EndianFirewall3.2_Fail2Ban
 Addon Fail2ban for Endian Firewall Community 3.2.x.
 
 <br>

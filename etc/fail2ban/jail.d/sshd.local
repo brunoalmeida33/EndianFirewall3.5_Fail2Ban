@@ -1,0 +1,8 @@
+[ssh-iptables]
+
+enabled  = true
+filter   = sshd
+action   = iptables-multiport[name=ssh, port="ssh", protocol=tcp]
+ 	   sendmail[name=SSH]
+logpath  = /var/log/messages
+

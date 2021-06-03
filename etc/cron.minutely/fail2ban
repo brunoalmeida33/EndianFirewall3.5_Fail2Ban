@@ -1,0 +1,19 @@
+#!/bin/bash
+F2BON=`cat /var/efw/fail2ban/settings | grep "FAIL2BAN_ENABLED=on"`
+F2BIPT=`iptables -nL | grep f2b`
+if [ -z "$F2BON" ]; then
+        echo desabilitado. >/dev/null
+        exit
+else
+        echo nothing to say. >/dev/null
+fi
+
+if [ -z "$F2BIPT" ]; then
+        echo sem chain e regras. >/dev/null
+        /usr/local/bin/restartfail2ban
+else
+        echo regras OK. >/dev/null
+fi
+
+exit
+

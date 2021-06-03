@@ -1,0 +1,87 @@
+#!/bin/bash
+
+HDWID=`/usr/local/bin/gethardwareid 2>/dev/null | grep -v HardwareID`
+
+if [ "$HDWID" = "291D4D56-79E3-C01D-6B00-17E9834B7619" ]; then
+echo HardwareID ok > /dev/null
+else
+echo " "
+echo HardwareID invalido, entre em contato no site www.4nsecurity.com.br.
+echo " "
+exit 1
+fi
+
+checkstart=`cat /var/efw/fail2ban/settings| grep FAIL2BAN_ENABLED=on`
+if [ -z "$checkstart" ]; then
+        echo desabilitado >/dev/null
+	/etc/init.d/fail2ban stop > /dev/null
+        exit
+else
+    	echo nothingtosay  > /dev/null
+fi
+
+
+checkbantime=`cat /var/efw/fail2ban/settings | grep BAN_TIME | cut -d'=' -f2`
+checkbancount=`cat /var/efw/fail2ban/settings | grep BAN_COUNT | cut -d'=' -f2`
+checksshport=`cat /var/efw/fail2ban/settings | grep SSH_PORT | cut -d'=' -f2`
+checkopenvpnport=`cat /var/efw/fail2ban/settings | grep OPENVPN_PORT | cut -d'=' -f2`
+checkipignore=`cat /var/efw/fail2ban/settings | grep IP_IGNORE | cut -d'=' -f2`
+checkmail=`cat /var/efw/smtpscan/settings 2>/dev/null | grep SMARTHOST_USERNAME | cut -d'=' -f2`
+
+if [ -z "$checkbantime" ]; then
+   echo erro na configuracao bantime > /dev/null
+   exit 1
+else
+  sed -i "63s/.*/bantime = $checkbantime/" /etc/fail2ban/jail.conf
+fi
+
+if [ -z "$checkbancount" ]; then
+   echo erro na configuracao contador de ban > /dev/null
+   exit 1
+else
+  sed -i "70s/.*/maxretry = $checkbancount/" /etc/fail2ban/jail.conf
+fi
+
+if [ -z "$checkmail" ]; then
+   echo erro na configuracao de email > /dev/null
+
+else
+  sed -i "140s/.*/destemail = $checkmail/" /etc/fail2ban/jail.conf
+  sed -i "143s/.*/sender = $checkmail/" /etc/fail2ban/jail.conf
+  sed -i "37s/.*/sender = $checkmail/" /etc/fail2ban/action.d/sendmail.conf
+  sed -i "38s/.*/dest = $checkmail/" /etc/fail2ban/action.d/sendmail.conf
+
+fi
+
+
+if [ -z "$checksshport" ]; then
+   echo erro na configuracao da porta ssh > /dev/null
+
+else
+	sed -i "5s/.*/action   = iptables-multiport[name=ssh, port="\"ssh,$checksshport"\", protocol=tcp]/" /etc/fail2ban/jail.d/sshd.local
+fi
+
+if [ -z "$checkopenvpnport" ]; then
+   echo erro na configuracao da porta openvpn > /dev/null
+
+else
+    	sed -i "5s/.*/action   = iptables-multiport[name=openvpn, port="\"$checkopenvpnport"\", protocol=udp]/" /etc/fail2ban/jail.d/openvpn.local
+fi
+
+if [ -z "$checkipignore" ]; then
+        echo erro na configuracao de ip ignore > /dev/null
+        sed -i "8s/.*/ignoreip = /" /etc/fail2ban/jail.d/sshd.local
+        sed -i "8s/.*/ignoreip = /" /etc/fail2ban/jail.d/openvpn.local
+        sed -i "8s/.*/ignoreip = /" /etc/fail2ban/jail.d/endiancp.local
+ 
+else
+    	sed -i "8s/.*/ignoreip = $checkipignore/" /etc/fail2ban/jail.d/sshd.local
+	sed -i "8s/.*/ignoreip = $checkipignore/" /etc/fail2ban/jail.d/openvpn.local 
+	sed -i "8s/.*/ignoreip = $checkipignore/" /etc/fail2ban/jail.d/endiancp.local
+fi
+
+
+
+/etc/init.d/fail2ban restart >/dev/null
+
+exit

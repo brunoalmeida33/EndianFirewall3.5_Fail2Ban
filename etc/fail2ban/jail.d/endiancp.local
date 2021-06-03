@@ -1,0 +1,8 @@
+[endiancp-iptables]
+
+enabled  = true
+filter   = endiancp
+action   = iptables-multiport[name=endiancp, port="10443,http,https"]
+           sendmail[name=ENDIANCP]
+logpath  = /var/log/httpd/error_log
+

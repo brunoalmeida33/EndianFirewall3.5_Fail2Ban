@@ -1,0 +1,8 @@
+[openvpn-iptables]
+
+enabled  = true
+filter   = openvpn
+action   = iptables-multiport[name=openvpn, port="1194", protocol=udp]
+           sendmail[name=OPENVPN]
+logpath  = /var/log/openvpn/openvpn.log
+
